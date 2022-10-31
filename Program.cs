@@ -10,7 +10,7 @@ internal class Program
         string Roman = "III";
         int meter = Roman.Length -1;
         int number = 0;
-        string[] chars = new string[meter] ;
+        string[] chars = new string[meter + 1] ;
         for(int i = 0; i < Roman.Length; i++)
         {
             chars[i] = Convert.ToString(Roman[i]);
