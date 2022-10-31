@@ -8,9 +8,9 @@ internal class Program
     {
         Console.WriteLine("Please write you Roman number to be converted into usual way: ");
         string Roman = "III";
-        int meter = Roman.Length;
+        int meter = Roman.Length -1;
         int number = 0;
-        string[] chars = new string[meter];
+        string[] chars = new string[meter] ;
         for(int i = 0; i < Roman.Length; i++)
         {
             chars[i] = Convert.ToString(Roman[i]);
@@ -19,15 +19,17 @@ internal class Program
         {
             int j = i + 1;
             int temp = Converter(chars[i]);
+            int check = temp;
 
-            if (j != meter - 1)
+            if (j != meter)
             {
-                int check = Checker(chars[j], temp);
+                check = Checker(chars[j], temp);
+                if (temp != check)
+                {
+                    i++;
+                }
             }
-            if (temp != check )
-            {
-                i++;
-            }
+           
             number += check;
         }
 
@@ -94,5 +96,6 @@ internal class Program
             }
             return tmp;
         }
+        Console.WriteLine (number);
     }
 }
