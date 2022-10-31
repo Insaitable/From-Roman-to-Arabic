@@ -7,11 +7,11 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Please write you Roman number to be converted into usual way: ");
-        string Roman = "III";
-        int meter = Roman.Length -1;
+        string Roman = Console.ReadLine();
+        int meter = Roman.Length ;
         int number = 0;
-        string[] chars = new string[meter + 1] ;
-        for(int i = 0; i < Roman.Length; i++)
+        string[] chars = new string[meter + 1];
+        for (int i = 0; i < Roman.Length; i++)
         {
             chars[i] = Convert.ToString(Roman[i]);
         }
@@ -21,7 +21,7 @@ internal class Program
             int temp = Converter(chars[i]);
             int check = temp;
 
-            if (j != meter)
+            if (j < meter)
             {
                 check = Checker(chars[j], temp);
                 if (temp != check)
@@ -29,12 +29,12 @@ internal class Program
                     i++;
                 }
             }
-           
+
             number += check;
         }
 
         Console.WriteLine($"number: {number}");
-        int Converter (string Rom)
+        int Converter(string Rom)
         {
             int result = 0;
             switch (Rom)
@@ -63,7 +63,7 @@ internal class Program
             }
             return result;
         }
-        int Checker (string num, int tmp)
+        int Checker(string num, int tmp)
         {
             int numbNextTo = 0;
             switch (num)
@@ -96,6 +96,6 @@ internal class Program
             }
             return tmp;
         }
-        Console.WriteLine (number);
+        
     }
 }
